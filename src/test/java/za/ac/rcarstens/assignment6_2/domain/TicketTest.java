@@ -1,8 +1,6 @@
 package za.ac.rcarstens.assignment6_2.domain;
 
 import org.junit.Assert;
-import org.junit.Test;
-import za.ac.rcarstens.assignment6_2.factory.ContactFactory;
 import za.ac.rcarstens.assignment6_2.factory.TicketDetailsFactory;
 import za.ac.rcarstens.assignment6_2.factory.TicketFactory;
 
@@ -10,7 +8,7 @@ import za.ac.rcarstens.assignment6_2.factory.TicketFactory;
  * Created by student on 2015/09/13.
  */
 public class TicketTest {
-    @Test
+    //@Test
     public void testCreate() throws Exception {
         TicketDetails ticketDeats = TicketDetailsFactory.createTicketDetails(8.90,"14 march","VIP");
         Ticket ticket = TicketFactory
@@ -18,7 +16,7 @@ public class TicketTest {
         Assert.assertEquals(8.90, ticket.getTicketDetails().getTicketPrice(),2);
     }
 
-    @Test
+    //@Test
     public void testUpdate() throws Exception {
         TicketDetails ticketDeats = TicketDetailsFactory.createTicketDetails(8.90, "14 march", "VIP");
         Ticket ticket = TicketFactory

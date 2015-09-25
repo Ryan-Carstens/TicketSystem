@@ -3,11 +3,9 @@ package za.ac.rcarstens.assignment6_2.services.implementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.rcarstens.assignment6_2.domain.Event;
-import za.ac.rcarstens.assignment6_2.domain.Event;
 import za.ac.rcarstens.assignment6_2.domain.Ticket;
 import za.ac.rcarstens.assignment6_2.repository.EventRepository;
 import za.ac.rcarstens.assignment6_2.services.EventServices;
-import za.ac.rcarstens.assignment6_2.services.Services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,24 +18,28 @@ public class EventImpl implements EventServices  {
     @Autowired
     EventRepository repository;
 
+    public Event findById(Long id) {
+        return repository.findOne(id);
+    }
+
     public List<Event> getAllEvents()
     {
         List<Event> AllEvents = new ArrayList<Event>();
 
-        Iterable<Event> customers = repository.findAll();
-        for (Event customer : customers) {
-            AllEvents.add(customer);
+        Iterable<Event> events = repository.findAll();
+        for (Event event : events) {
+            AllEvents.add(event);
         }
         return AllEvents;
     }
 
-    public Event findEventByIDandEmail(Long id, String eventName)
+    public Event findEventByIDandName(Long id, String eventName)
     {
-        Event customer = repository.findOne(id);
-        if(customer != null)
+        Event event = repository.findOne(id);
+        if(event != null)
         {
-            if(customer.getLoginDeats().getLoginEmail().equals(loginEmail))
-                return customer;
+            if(event.getEventName().equals(eventName))
+                return event;
         }
 
         return null;

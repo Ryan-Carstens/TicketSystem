@@ -1,6 +1,5 @@
 package za.ac.rcarstens.assignment6_2.domain;
 
-import org.junit.Test;
 import org.junit.Assert;
 import za.ac.rcarstens.assignment6_2.factory.AdminFactory;
 import za.ac.rcarstens.assignment6_2.factory.FullNameFactory;
@@ -10,7 +9,7 @@ import za.ac.rcarstens.assignment6_2.factory.LoginFactory;
  * Created by student on 2015/09/13.
  */
 public class AdminTest {
-    @Test
+    //@Test
     public void testCreate() throws Exception {
         Login LoginDeats = LoginFactory.createLogin("ryan@gmail.com", "student");
         FullName FullNameDeats = FullNameFactory.createFullName("Ryan", "Carstens");
@@ -19,7 +18,7 @@ public class AdminTest {
         Assert.assertEquals("ryan@gmail.com", admin.getLoginDeats().getLoginEmail());
     }
 
-    @Test
+    //@Test
     public void testUpdate() throws Exception {
         Login LoginDeats = LoginFactory.createLogin("ryan@gmail.com", "student");
         FullName FullNameDeats = FullNameFactory.createFullName("Ryan", "Carstens");
