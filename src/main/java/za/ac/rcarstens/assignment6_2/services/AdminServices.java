@@ -10,7 +10,7 @@ import java.util.List;
 public interface AdminServices  {
 
     List<Admin> getAllAdmins();
-    Admin findAdminByIDandEmail(Long id, String email);
+    boolean findAdminByEmailandPassword(String loginEmail, String password);
     Admin save(Admin entity);
     Admin update(Admin entity);
     void delete(Admin entity);

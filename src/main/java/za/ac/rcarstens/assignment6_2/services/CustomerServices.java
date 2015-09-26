@@ -12,7 +12,8 @@ public interface CustomerServices  {
 
     List<Ticket> getTickets(Long id);
     List<Customer> getAllCustomers();
-    Customer findCustomerByIDandEmail(Long id, String email);
+    Customer findById(Long id);
+    boolean findCustomerByEmailandPassword(String loginEmail, String password);
     Customer save(Customer entity);
     Customer update(Customer entity);
     void delete(Customer entity);

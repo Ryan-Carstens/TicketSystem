@@ -28,17 +28,37 @@ public class AdminImpl implements AdminServices {
         return Admins;
     }
 
-    public Admin findAdminByIDandEmail(Long id, String loginEmail)
+    public boolean findAdminByEmailandPassword(String loginEmail, String password)
     {
-        Admin admin = repository.findOne(id);
-        if(admin != null)
-        {
-            if(admin.getLoginDeats().getLoginEmail().equals(loginEmail))
-                return admin;
-        }
+        Iterable<Admin> values = repository.findAll();
 
-        return null;
+        for(Admin customer : values) {
+            String cust = customer.getLoginDeats().getLoginEmail();
+            String pass = customer.getLoginDeats().getPassword();
+
+            if(cust.equals(loginEmail))
+            {
+                if(pass.equals(password))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+
     }
+
+//    public Admin findAdminByIDandEmail(Long id, String loginEmail)
+//    {
+//        Admin admin = repository.findOne(id);
+//        if(admin != null)
+//        {
+//            if(admin.getLoginDeats().getLoginEmail().equals(loginEmail))
+//                return admin;
+//        }
+//
+//        return null;
+//    }
 
     public Admin save(Admin entity) {
         return repository.save(entity);

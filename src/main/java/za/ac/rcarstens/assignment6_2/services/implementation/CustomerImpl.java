@@ -19,6 +19,10 @@ public class CustomerImpl implements CustomerServices {
     @Autowired
     CustomerRepository repository;
 
+    public Customer findById(Long id) {
+        return repository.findOne(id);
+    }
+
     public List<Customer> getAllCustomers()
     {
         List<Customer> AllCustomers = new ArrayList<Customer>();
@@ -30,16 +34,24 @@ public class CustomerImpl implements CustomerServices {
         return AllCustomers;
     }
 
-    public Customer findCustomerByIDandEmail(Long id, String loginEmail)
+    public boolean findCustomerByEmailandPassword(String loginEmail, String password)
     {
-        Customer customer = repository.findOne(id);
-        if(customer != null)
-        {
-            if(customer.getLoginDeats().getLoginEmail().equals(loginEmail))
-                return customer;
-        }
+        Iterable<Customer> values = repository.findAll();
 
-        return null;
+        for(Customer customer : values) {
+            String cust = customer.getLoginDeats().getLoginEmail();
+            String pass = customer.getLoginDeats().getPassword();
+
+            if(cust.equals(loginEmail))
+            {
+                if(pass.equals(password))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+
     }
 
     public Customer save(Customer entity) {
