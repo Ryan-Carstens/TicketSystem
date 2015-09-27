@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import za.ac.rcarstens.assignment6_2.domain.Admin;
 import za.ac.rcarstens.assignment6_2.domain.Customer;
 import za.ac.rcarstens.assignment6_2.model.AdminResources;
 import za.ac.rcarstens.assignment6_2.model.CustomerResources;
@@ -37,6 +38,17 @@ public class LoginPage {
             return new ResponseEntity<List<Customer>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
         return new ResponseEntity<List<Customer>>(Customers, HttpStatus.OK);
+    }
+
+    //-------------------Retrieve All Admins--------------------------------------------------------
+
+    @RequestMapping(value = "/admins/", method = RequestMethod.GET)
+    public ResponseEntity<List<Admin>> listAllAdmins() {
+        List<Admin> Admins = service2.getAllAdmins();
+        if(Admins.isEmpty()){
+            return new ResponseEntity<List<Admin>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<Admin>>(Admins, HttpStatus.OK);
     }
 
 
