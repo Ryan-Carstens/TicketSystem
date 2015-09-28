@@ -1,12 +1,14 @@
 package za.ac.rcarstens.assignment6_2.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.util.UriComponentsBuilder;
 import za.ac.rcarstens.assignment6_2.domain.Admin;
 import za.ac.rcarstens.assignment6_2.domain.Customer;
 import za.ac.rcarstens.assignment6_2.services.AdminServices;
@@ -45,7 +47,7 @@ public class SignUpPage {
     //-------------------Create a Admin--------------------------------------------------------
 
     @RequestMapping(value = "/admin/signup", method = RequestMethod.POST)
-    public ResponseEntity<Void> createAdmin(@RequestBody Admin admin) {
+    public ResponseEntity<Void> createAdmin(@RequestBody Admin admin, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating admin " + admin.getFullNameDeats().getFirstname());
         if(service2.checkUserExist(admin))
         {
@@ -58,7 +60,8 @@ public class SignUpPage {
 //        }
 
         service2.save(admin);
-
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(ucBuilder.path("/admin/{id}").buildAndExpand(admin.getID()).toUri());
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
