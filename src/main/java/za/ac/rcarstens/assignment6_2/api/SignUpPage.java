@@ -32,27 +32,30 @@ public class SignUpPage {
         System.out.println("Creating Customer " + customer.getFullNameDeats().getFirstname());
 
 //     USE THIS IF YOU WANT TO CHECK UNIQUE OBJECT
-      if (service1.exists(customer.getID())) {
-            System.out.println("A Subject with name " + customer.getFullNameDeats().getFirstname() + " already exist");
-            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        }
+//      if (service1.exists(customer.getID())) {
+//            System.out.println("A Subject with name " + customer.getFullNameDeats().getFirstname() + " already exist");
+//            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+//        }
 
         service1.save(customer);
 
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
-    //-------------------Create a Customer--------------------------------------------------------
+    //-------------------Create a Admin--------------------------------------------------------
 
     @RequestMapping(value = "/admin/signup", method = RequestMethod.POST)
     public ResponseEntity<Void> createAdmin(@RequestBody Admin admin) {
         System.out.println("Creating admin " + admin.getFullNameDeats().getFirstname());
-
-//     USE THIS IF YOU WANT TO CHECK UNIQUE OBJECT
-        if (service1.exists(admin.getID())) {
-            System.out.println("A Subject with name " + admin.getFullNameDeats().getFirstname() + " already exist");
+        if(service2.checkUserExist(admin))
+        {
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }
+//     USE THIS IF YOU WANT TO CHECK UNIQUE OBJECT
+//        if (service1.exists(admin.getID())) {
+//            System.out.println("A Subject with name " + admin.getFullNameDeats().getFirstname() + " already exist");
+//            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+//        }
 
         service2.save(admin);
 

@@ -17,6 +17,21 @@ public class AdminImpl implements AdminServices {
     @Autowired
     AdminRepository repository;
 
+    public boolean checkUserExist(Admin adminNew)
+    {
+        String email = adminNew.getLoginDeats().getLoginEmail();
+        Iterable <Admin> values = repository.findAll();
+        for(Admin admin: values)
+        {
+            String userOld = admin.getLoginDeats().getLoginEmail();
+            if(email.equals(userOld))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public List<Admin> getAllAdmins()
     {
         List<Admin> Admins = new ArrayList<Admin>();

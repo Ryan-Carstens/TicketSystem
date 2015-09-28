@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface AdminServices  {
 
+    boolean checkUserExist(Admin admin);
     List<Admin> getAllAdmins();
     boolean findAdminByEmailandPassword(String loginEmail, String password);
     Admin save(Admin entity);
