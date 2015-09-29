@@ -62,7 +62,7 @@ public class SignUpPage {
         service2.save(admin);
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/admin/{id}").buildAndExpand(admin.getID()).toUri());
-        return new ResponseEntity<Void>(HttpStatus.CREATED);
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
 }
