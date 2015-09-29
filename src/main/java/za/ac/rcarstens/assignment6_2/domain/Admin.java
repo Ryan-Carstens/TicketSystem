@@ -8,7 +8,7 @@ import java.io.Serializable;
  * Created by student on 2015/08/07.
  */
 @Entity
-public class Admin implements Serializable, UserInterface {
+public class Admin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
