@@ -49,10 +49,10 @@ public class SignUpPage {
     @RequestMapping(value = "/admin/signup", method = RequestMethod.POST)
     public ResponseEntity<Void> createAdmin(@RequestBody Admin admin, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating admin " + admin.getFullNameDeats().getFirstname());
-        if(service2.exists(admin.getID()))
+        /*if(service2.exists(admin.getID()))
         {
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        }
+        }*/
 //     USE THIS IF YOU WANT TO CHECK UNIQUE OBJECT
 //        if (service1.exists(admin.getID())) {
 //            System.out.println("A Subject with name " + admin.getFullNameDeats().getFirstname() + " already exist");
