@@ -7,7 +7,7 @@ import za.ac.rcarstens.assignment6_2.domain.Ticket;
 import za.ac.rcarstens.assignment6_2.domain.TicketDetails;
 import za.ac.rcarstens.assignment6_2.factory.TicketDetailsFactory;
 import za.ac.rcarstens.assignment6_2.factory.TicketFactory;
-import za.ac.rcarstens.assignment6_2.services.TicketServices;
+import za.ac.rcarstens.assignment6_2.services.implementation.TicketImpl;
 
 /**
  * Created by student on 2015/09/23.
@@ -19,7 +19,7 @@ public class TicketTestServices extends AbstractTestNGSpringContextTests {
     private Long id;
 
     @Autowired
-    private TicketServices service;
+    private TicketImpl service;
 
     //@Test
     public void create() throws Exception {
