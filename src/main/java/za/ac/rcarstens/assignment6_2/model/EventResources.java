@@ -89,30 +89,5 @@ public class EventResources extends ResourceSupport {
 
     }
 
-    @Override
-    public String toString() {
-        return "Event{" +
-                "Event_id='" + resID + '\'' +
-                ", EventDetails=" + EventDetails +
-                ", totalTickets=" + totalTickets +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        EventResources eventR = (EventResources) o;
-
-        if (resID != null ? !resID.equals(eventR.resID) : eventR.resID != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return resID != null ? resID.hashCode() : 0;
-    }
 }
 

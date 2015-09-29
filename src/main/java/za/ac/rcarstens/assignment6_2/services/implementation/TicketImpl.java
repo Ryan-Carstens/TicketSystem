@@ -19,28 +19,28 @@ public class TicketImpl implements TicketServices {
 
     @Autowired
     private TicketRepository repository;
-    @Override
+
     public Ticket findById(Long id) {
         return repository.findOne(id);
     }
 
-    @Override
+
     public Ticket save(Ticket entity) {
         return repository.save(entity);
     }
 
-    @Override
+
     public Ticket update(Ticket entity) {
         return repository.save(entity);
     }
 
-    @Override
+
     public void delete(Ticket entity) {
         repository.delete(entity);
 
     }
 
-    @Override
+
     public List<Ticket> findAll() {
         List<Ticket> allTickets = new ArrayList<>();
         Iterable<Ticket> tickets = repository.findAll();

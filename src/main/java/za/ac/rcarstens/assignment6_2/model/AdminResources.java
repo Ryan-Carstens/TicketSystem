@@ -77,29 +77,4 @@ public class AdminResources extends ResourceSupport implements UserInterface
         }
     }
 
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "Admin_id='" + resID + '\'' +
-                ", LoginDetails=" + LoginDeats +
-                ", Fullname=" + FullNameDeats +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AdminResources admn = (AdminResources) o;
-
-        if (resID != null ? !resID.equals(admn.resID) : admn.resID != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return resID != null ? resID.hashCode() : 0;
-    }
 }

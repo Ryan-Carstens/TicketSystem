@@ -63,18 +63,6 @@ public class AdminImpl implements AdminServices {
 
     }
 
-//    public Admin findAdminByIDandEmail(Long id, String loginEmail)
-//    {
-//        Admin admin = repository.findOne(id);
-//        if(admin != null)
-//        {
-//            if(admin.getLoginDeats().getLoginEmail().equals(loginEmail))
-//                return admin;
-//        }
-//
-//        return null;
-//    }
-
     public Admin save(Admin entity) {
         return repository.save(entity);
     }

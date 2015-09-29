@@ -18,7 +18,7 @@ public class Admin implements Serializable, UserInterface {
     private FullName FullNameDeats;
 
     //Constructors
-    private Admin() {
+    public Admin() {
 
     }
 
@@ -82,9 +82,9 @@ public class Admin implements Serializable, UserInterface {
     @Override
     public String toString() {
         return "Admin{" +
-                "Admin_id='" + id + '\'' +
-                ", LoginDetails=" + LoginDeats +
-                ", Fullname=" + FullNameDeats +
+                "id=" + id +
+                ", LoginDeats=" + LoginDeats +
+                ", FullNameDeats=" + FullNameDeats +
                 '}';
     }
 
@@ -93,9 +93,9 @@ public class Admin implements Serializable, UserInterface {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Admin admn = (Admin) o;
+        Admin admin = (Admin) o;
 
-        if (id != null ? !id.equals(admn.id) : admn.id != null) return false;
+        if (id != null ? !id.equals(admin.id) : admin.id != null) return false;
 
         return true;
     }

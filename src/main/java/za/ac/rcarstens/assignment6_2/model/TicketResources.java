@@ -1,7 +1,6 @@
 package za.ac.rcarstens.assignment6_2.model;
 
 import org.springframework.hateoas.ResourceSupport;
-import za.ac.rcarstens.assignment6_2.domain.TicketDetails;
 
 /**
  * Created by student on 2015/08/20.
@@ -9,7 +8,7 @@ import za.ac.rcarstens.assignment6_2.domain.TicketDetails;
 public class TicketResources extends ResourceSupport
 {
     private Long resID;
-    private TicketDetails TicketDetails;
+    private za.ac.rcarstens.assignment6_2.domain.TicketDetails TicketDetails;
 
     //Constructors
     private TicketResources() {
@@ -26,7 +25,7 @@ public class TicketResources extends ResourceSupport
         return resID;
     }
 
-    public TicketDetails getTicketDetails() {
+    public za.ac.rcarstens.assignment6_2.domain.TicketDetails getTicketDetails() {
         return TicketDetails;
     }
 
@@ -34,7 +33,7 @@ public class TicketResources extends ResourceSupport
     public static class Builder{
 
         private Long resID;
-        private TicketDetails TicketDetails;
+        private za.ac.rcarstens.assignment6_2.domain.TicketDetails TicketDetails;
 
 
         public Builder() {
@@ -47,7 +46,7 @@ public class TicketResources extends ResourceSupport
 
         }
 
-        public Builder ticketDetails(TicketDetails value){
+        public Builder ticketDetails(za.ac.rcarstens.assignment6_2.domain.TicketDetails value){
             this.TicketDetails=value;
             return this;
 

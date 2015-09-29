@@ -49,7 +49,7 @@ public class SignUpPage {
     @RequestMapping(value = "/admin/signup", method = RequestMethod.POST)
     public ResponseEntity<Void> createAdmin(@RequestBody Admin admin, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating admin " + admin.getFullNameDeats().getFirstname());
-        if(service2.checkUserExist(admin))
+        if(service2.exists(admin.getID()))
         {
             return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }

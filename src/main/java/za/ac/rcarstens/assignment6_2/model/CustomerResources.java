@@ -129,33 +129,4 @@ public class CustomerResources extends ResourceSupport implements UserInterface 
         }
     }
 
-    @Override
-    public String toString() {
-        return "CustomerResources{" +
-                "Customer_id='" + resID + '\'' +
-                ", LoginDetails=" + LoginDeats +
-                ", Fullname=" + FullNameDeats +
-                ", Address=" + AddressDeats +
-                ", ContactDetails=" + ContactDeats +
-                ", BankDetails=" + BankDeats +
-                ", Tickets=" + Tickets +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        CustomerResources cust = (CustomerResources) o;
-
-        if (resID != null ? !resID.equals(cust.resID) : cust.resID != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return resID != null ? resID.hashCode() : 0;
-    }
 }
